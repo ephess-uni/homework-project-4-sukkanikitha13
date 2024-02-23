@@ -28,10 +28,8 @@ def date_range(start, n):
         raise TypeError("n is not a integer")
     else:
         N_date_list = []
-        start_date = datetime.strptime(start, '%Y-%m-%d')
         for day in range(n):
-            date_obj = (start_date, timedelta(days = day)).isoformat()
-            N_date_list.append(date_obj)
+            N_date_list.append(datetime.strptime(start, '%Y-%m-%d') + timedelta(days=day))
         return N_date_list
     
 
