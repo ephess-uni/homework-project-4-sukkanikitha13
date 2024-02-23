@@ -30,7 +30,7 @@ def date_range(start, n):
         N_date_list = []
         start_date = datetime.strptime(start, '%Y-%m-%d')
         for day in range(n):
-            date_obj = (start_date, datetime.timedelta(day = day)).isoformat()
+            date_obj = (start_date, timedelta(day = day)).isoformat()
             N_date_list.append(date_obj)
         return N_date_list
     
