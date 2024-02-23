@@ -30,7 +30,7 @@ def date_range(start, n):
         N_date_list = []
         start_date = datetime.strptime(start, '%Y-%m-%d')
         for day in range(n):
-            date_obj = (start_date, timedelta(day = day)).isoformat()
+            date_obj = (start_date, timedelta(days = day)).isoformat()
             N_date_list.append(date_obj)
         return N_date_list
     
@@ -65,12 +65,12 @@ def fees_report(infile, outfile):
                 late_fees[patronid] = 0.00
 
     with open(outfile, 'w') as csvfile:
-        write = DictWriter(csvfile, fieldnames=['patron_id','late_fee'])
+        write = DictWriter(csvfile, fieldnames=['patron_id','late_fees'])
         write.writeheader()
         for patron_id, fee in late_fees.items():
             write.writerow({
                 'patron_id': patron_id,
-                'late_fee': f'{fee:.2f}',
+                'late_fees': f'{fee:.2f}',
             })
 
 # The following main selection block will only run when you choose
